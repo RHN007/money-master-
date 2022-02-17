@@ -10,7 +10,6 @@ function getIncomeValue() {
 function getInputValue(expense) {
     const expenseInput = document.getElementById(expense + "-expense-input");
     const expenseAmount = parseFloat(expenseInput.value);
-    if (expenseAmount != "number") {}
     return expenseAmount;
 }
 
@@ -24,9 +23,7 @@ function balance() {
     const balanceTotal = getIncomeValue() - expenseTotal;
 
     if (expenseTotal > getIncomeValue()) {
-        alert(
-            "You cannot have any savings as your expese is greater than your income"
-        );
+        alert("Your Expense cannot be greater than your income");
     }
 
     document.getElementById("expense-total").innerText = expenseTotal;
