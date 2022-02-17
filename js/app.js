@@ -51,14 +51,15 @@ document.getElementById("saving-button").addEventListener("click", function() {
     const sucessMessage = document.getElementById("notify-sucess");
     const failError = document.getElementById("notify-fail");
 
-    if (balance() > 0) {
-        function saving() {
-            const savingsAmount = Math.round(
-                (getIncomeValue() / 100) * savingsInputPercentage
-            ).toFixed(2);
-            document.getElementById("savings-amount").innerText = savingsAmount;
-            return savingsAmount;
-        }
+    function saving() {
+        const savingsAmount = Math.round(
+            (getIncomeValue() / 100) * savingsInputPercentage
+        ).toFixed(2);
+        document.getElementById("savings-amount").innerText = savingsAmount;
+        return savingsAmount;
+    }
+
+    if (balance() > 0 && saving() < balance()) {
         sucessMessage.style.display = "block";
         failError.style.display = "none";
     } else {
