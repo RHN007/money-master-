@@ -1,4 +1,4 @@
-// Handle Income Input :
+// Handle Calculate Button :
 
 document
     .getElementById("calculate-button")
