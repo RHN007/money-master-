@@ -13,11 +13,13 @@ function getInputValue(expense) {
     return expenseAmount;
 }
 
+// Balance Function
+
 function balance() {
-    const foodExpnese = getInputValue("food");
+    const foodExpense = getInputValue("food");
     const rentExpense = getInputValue("rent");
     const clothExpense = getInputValue("cloth");
-    const expenseTotal = parseFloat(foodExpnese + rentExpense + clothExpense);
+    const expenseTotal = parseFloat(foodExpense + rentExpense + clothExpense);
     const balanceTotal = getIncomeValue() - expenseTotal;
 
     document.getElementById("expense-total").innerText = expenseTotal;
@@ -26,22 +28,36 @@ function balance() {
     return balanceTotal;
 }
 
-// Handle Calculate Balance Event :
+// Handle Calculate Button :
 document
     .getElementById("calculate-button")
     .addEventListener("click", function() {
         balance();
     });
 
-// Handle Savings Event
+// Handle Savings Button
 
 document.getElementById("saving-button").addEventListener("click", function() {
     const savingsInput = document.getElementById("saving-input");
-    const savingsInputPercent = parseFloat(savingsInput.value);
+    const savingsInputPercentage = parseFloat(savingsInput.value);
 
-    const savings = (getIncomeValue() / 100) * savingsInputPercent;
-    const remainingBalance = parseFloat(balance() - savings);
+    const sucessMessage = document.getElementById("notify-sucess");
+    const failError = document.getElementById("notify-fail");
 
-    document.getElementById("savings-amount").innerText = savings;
-    document.getElementById("remaining-balance").innerText = remainingBalance;
+    if (balance() > 0) {
+        const savingsAmount = Math.round(
+            (getIncomeValue() / 100) * savingsInputPercentage
+        ).toFixed(2);
+
+        const remainingBalance = parseFloat(balance() - savingsAmount).toFixed(2);
+
+        document.getElementById("savings-amount").innerText = savingsAmount;
+        document.getElementById("remaining-balance").innerText = remainingBalance;
+
+        sucessMessage.style.display = "block";
+        failError.style.display = "none";
+    } else {
+        failError.style.display = "block";
+        sucessMessage.style.display = "none";
+    }
 });
