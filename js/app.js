@@ -10,7 +10,12 @@ function getIncomeValue() {
 function getInputValue(expense) {
     const expenseInput = document.getElementById(expense + "-expense-input");
     const expenseAmount = parseFloat(expenseInput.value);
-    return expenseAmount;
+
+    if (expenseInput.value == "") {
+        expenseInput.value = 0;
+    } else {
+        return expenseAmount;
+    }
 }
 
 // Balance Function
@@ -28,8 +33,11 @@ function balance() {
 
     document.getElementById("expense-total").innerText = expenseTotal;
     document.getElementById("balance-total").innerText = balanceTotal;
-
-    return balanceTotal;
+    if (isNaN(balanceTotal)) {
+        alert("Input Section cannot be Empty. Please Click Calculate Again");
+    } else {
+        return balanceTotal;
+    }
 }
 
 // Handle Calculate Button :
@@ -55,7 +63,7 @@ document.getElementById("saving-button").addEventListener("click", function() {
         document.getElementById("savings-amount").innerText = savingsAmount;
         return savingsAmount;
     }
-
+    //Error Handler
     if (balance() > 0 && saving() < balance()) {
         sucessMessage.style.display = "block";
         failError.style.display = "none";
