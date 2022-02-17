@@ -19,19 +19,12 @@ document
             const foodExpnese = getInputValue("food");
             const rentExpense = getInputValue("rent");
             const clothExpense = getInputValue("cloth");
-
             const expenseTotal = parseFloat(foodExpnese + rentExpense + clothExpense);
-
             document.getElementById("expense-total").innerText = expenseTotal;
-
             return expenseTotal;
         }
 
         // Get Current Balance
         const balanceTotal = document.getElementById("balance-total");
-        const previousBalanceText = balanceTotal.innerText;
-        const previousBalanceAmount = parseFloat(previousBalanceText);
-        const newBalanceTotal =
-            incomeAmount + previousBalanceAmount - calculateTotalExp();
-        balanceTotal.innerText = newBalanceTotal;
+        balanceTotal.innerText = incomeAmount - calculateTotalExp();
     });
