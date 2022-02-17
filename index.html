@@ -22,39 +22,52 @@
             <div class="xl:w-6/12 xl:pl-12">
                 <img class="w-auto rounded" src="images/wallet.jpg" alt="" />
             </div>
-            <div class="text-center xl:w-6/12 xl:h-fit bg-slate-100 xl:p-6 xl:mx-6">
+            <div class="text-center xl:w-6/12 xl:h-fit bg-slate-100 xl:p-12 xl:mx-12">
+                <!-- Monthly Income  -->
+
                 <h3 class="font-bold pt-1.5">Income</h3>
                 <p>
                     Income:
-                    <input class="bg-slate-200 rounded my-4 ml-5 p-1" type="number" placeholder="Your Income" />
+                    <input id="income-input" class="bg-slate-200 rounded my-4 ml-5 p-1" type="number" placeholder="Your Income" />
                 </p>
+
+                <!-- Monthly Expenses  -->
                 <h3 class="font-bold">Expenses</h3>
 
                 <p>
                     Food:
-                    <input class="bg-slate-200 rounded my-1 ml-8 p-1" type="number" name="" id="" />
+                    <input id="food-expense-input" class="bg-slate-200 rounded my-1 ml-8 p-1" type="number" name="" id="" />
                 </p>
                 <p>
                     Rent:
-                    <input class="bg-slate-200 rounded my-1 ml-9 p-1" type="number" name="" id="" />
+                    <input id="rent-expense-input" class="bg-slate-200 rounded my-1 ml-9 p-1" type="number" name="" id="" />
                 </p>
                 <p>
                     Clothes:
-                    <input class="bg-slate-200 rounded my-1 ml-4 p-1" type="number" name="" id="" />
+                    <input id="cloth-expense-input" class="bg-slate-200 rounded my-1 ml-4 p-1" type="number " name=" " id=" " />
                 </p>
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-5">
+                <button id="calculate-button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-5">
             Calculate
           </button>
-                <p class="font-bold">Total Expenses : <span>00</span></p>
-                <p class="font-bold">Balance : <span>00</span></p>
+                <!-- Total Expense  -->
+                <p class="font-bold">
+                    Total Expenses : <span id="expense-total">00</span>
+                </p>
+                <!-- Balance Total -->
+                <p class="font-bold">Balance : <span id="balance-total">00</span></p>
+
+                <!-- Savings Part  -->
+
                 <p class="m-5">
                     Save:
-                    <input class="bg-slate-200 rounded my-3 ml-4 p-1 w-1/6" type="number" name="" id="" /> %
+                    <input class="bg-slate-200 rounded my-3 ml-4 p-1 w-1/6" type="number " name=" " id=" " /> %
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
               Save
             </button>
                 </p>
                 <p class="font-bold">Savings Amount : <span>00</span></p>
+
+                <!-- Cash In Hand  -->
                 <p class="font-bold pb-4">Remaining Balance : <span>00</span></p>
             </div>
         </section>
